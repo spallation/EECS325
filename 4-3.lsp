@@ -14,3 +14,4 @@
         (t (or (3tree-member obj (3tree-left tree))
                (3tree-member obj (3tree-middle tree))
                (3tree-member obj (3tree-right tree))))))
+            
