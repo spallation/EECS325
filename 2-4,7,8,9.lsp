@@ -7,10 +7,9 @@
 
 ; 2-7
 (defun has-list-p (ls)
-  (if (null ls)
-      nil
-    (or (listp (car ls))
-        (has-list-p (cdr ls)))))
+  (cond ((null ls) nil)
+        ((listp (car ls)) t)
+        (t (has-list-p (cdr ls)))))
 
 ; 2-8 a iteration
 (defun print-dots (p-number)
@@ -19,11 +18,10 @@
     (format t ".")))
 
 ; 2-8 a recursion
-(defun print-dots (p-number)
-  (if (= 0 p-number)
-      'done
-    (progn (format t ".")
-      (print-dots (- p-number 1)))))
+(defun print-dots (n)
+  (when (plusp n) 
+    (format t ".")
+    (print-dots (1- n))))
 
 ; 2-8 b iteration
 (defun get-a-count (ls)
